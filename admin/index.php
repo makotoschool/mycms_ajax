@@ -8,8 +8,11 @@ $stmt=$dbh->query('SELECT * FROM posts ORDER BY new_date DESC');
 <html>
 <head>
 <meta charset="UTF-8">
+<title>管理画面ajax</title>
 <link type="text/css" rel="stylesheet" href="admin.css">
-<title>管理画面</title>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="js/admin.js"></script>
+
 </head>
 <body>
 <div class="container">
@@ -48,7 +51,7 @@ $stmt=$dbh->query('SELECT * FROM posts ORDER BY new_date DESC');
     			<td><?php echo $post['title']; ?></td>
             	<td><?php echo $post['content']; ?></td>
             	<td>
-            	<a href="delete.php?id=<?php echo $post['id']; ?>">削除する</a><br>
+            	<button id="<?php echo $post['id'];?>" class="del" >削除</button></br>
             	<a href="edit.php?id=<?php echo $post['id']; ?>">編集する</a>
             	</td>
         	</tr>    

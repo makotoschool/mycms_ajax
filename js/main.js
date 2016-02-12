@@ -39,15 +39,15 @@ $('#newslist li').each(function(i){
 var news_li=$('#newslist').find('li');
 news_li.click(function(event){
 	var clicked_id = $(event.target).attr('id');
-	$('.container').after('<div class="modal_wrapp"><div class="modal_box"><p><span id="close">&times;</span></p></div></div>');
+	$('.container').after('<div class="modal_wrapp"><div class="modal_box"><p><span id="close">&times;</span></p><div class="modal_content"></div></div></div>');
 	$.ajax({
 		type:'POST',
 		url:'./detail.php',
 		data:{
 				id:clicked_id			
 			},
-		success:function(){
-			alert('うまくいったよ');
+		success:function(data){
+			$('.modal_content').html(data);
 		}	
 	
 	});
@@ -64,8 +64,5 @@ news_li.click(function(event){
 	
 });//End news_li click
 
-    
-    
-    
-    
+  
 });//End Jquery
