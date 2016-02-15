@@ -19,17 +19,17 @@ $stmt=$dbh->query('SELECT * FROM posts ORDER BY new_date DESC');
     <h1 class="maintitle">投稿管理画面</h1>
     <div class="content">
        <h2 class="subtitle">新規投稿</h2>
-        <form action="confirm.php" method="post" class="input">
+        <form id="pf" action="post_ajax.php" method="post" class="input">
            <p>
             <label for="title">タイトル</label><br>
-            <input type="text" name="title" class="input_title" required placeholder="ここにタイトルを入力してください"><br>
+            <input id="title" type="text" name="title" class="input_title" required placeholder="ここにタイトルを入力してください"><br>
             </p>
             <p>
             <label for="title">内容</label><br>
-                <textarea name="content" class="input_textarea" required placeholder="ここに本文を入力してください"></textarea><br>
+                <textarea id="content" name="content" class="input_textarea" required placeholder="ここに本文を入力してください"></textarea><br>
             </p>
             <p>
-            <input type="submit" value="確認">
+            <button id="post_submit">投稿</button>
             </p>      
         </form>
         
