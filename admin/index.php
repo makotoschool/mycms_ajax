@@ -36,27 +36,30 @@ $stmt=$dbh->query('SELECT * FROM posts ORDER BY new_date DESC');
     </div>
     <div class="content">
         <h2 class="subtitle">投稿一覧から編集</h2>
-        <table class="allpost">
-            <tr>
-                <th width="5%">ID</th>
-                <th width="10%">更新時間</th>
-                <th width="20%">タイトル</th>
-                <th width="55%">本文</th>
-                <th width="10%">編集内容</th>                
-            </tr>
-            <?php foreach($stmt as $post): ?>
-    		<tr>
-    			<td><?php echo $post['id']; ?></td>
-    			<td><?php echo $post['new_date']; ?></td>
-    			<td><?php echo $post['title']; ?></td>
-            	<td><?php echo $post['content']; ?></td>
-            	<td>
-            	<button id="<?php echo $post['id'];?>" class="del" >削除</button></br>
-            	<a href="edit.php?id=<?php echo $post['id']; ?>">編集する</a>
-            	</td>
-        	</tr>    
-    		<?php endforeach; ?>
-            
+        <table id="allpost" class="allpost">
+        	<thead>
+	            <tr>
+	                <th width="5%">ID</th>
+	                <th width="10%">更新時間</th>
+	                <th width="20%">タイトル</th>
+	                <th width="55%">本文</th>
+	                <th width="10%">編集内容</th>                
+	            </tr>
+            </thead>
+            <tbody>
+	            <?php foreach($stmt as $post): ?>
+	    		<tr>
+	    			<td><?php echo $post['id']; ?></td>
+	    			<td><?php echo $post['new_date']; ?></td>
+	    			<td><?php echo $post['title']; ?></td>
+	            	<td><?php echo $post['content']; ?></td>
+	            	<td>
+	            	<button id="<?php echo $post['id'];?>" class="del" >削除</button></br>
+	            	<a href="edit.php?id=<?php echo $post['id']; ?>">編集する</a>
+	            	</td>
+	        	</tr>    
+	    		<?php endforeach; ?>
+            </tbody>
         </table>
     </div>
 

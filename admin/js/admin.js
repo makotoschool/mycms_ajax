@@ -1,5 +1,5 @@
 $(function(){
-	$('.del').click(function(event){
+	$('#allpost').on('click','.del',function(event){
 		var target=$(event.target);
 		var del_id=target.attr('id');
 		$.ajax({
@@ -26,7 +26,8 @@ $(function(){
 				content:$('#content').val()
 			},
 			success:function(data){
-				alert(data);
+			  $('#allpost').find('tbody').prepend(data);
+			  $('#allpost').find('tbody').find('tr:first-of-type').hide().fadeIn(1000);	
 			
 			}
 			
